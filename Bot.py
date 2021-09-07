@@ -12,6 +12,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 ## Telegram Bot Starter
 # API Token for Telegram BOT from BOTFather
 TOKEN = "TELEGRAM_BOT_TOKEN"
+HEROKU_URL = "HEROKU_URL"
 
 # Initializing the bot and server
 bot = telebot.TeleBot(token=TOKEN)
@@ -367,7 +368,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url="HEROKU_URL" + TOKEN)
+    bot.set_webhook(url=HEROKU_URL + TOKEN)
     return "!", 200
 
 
